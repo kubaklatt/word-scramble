@@ -98,8 +98,15 @@ const hintToWord = document.querySelector(".hint-text");
 
 const initGame = () => {
   let randomObj = words[Math.floor(Math.random() * words.length)];
-  let wordArray = randomObj.word;
-  wordToGuess.innerHTML = randomObj.word;
+  let wordToShuffle = randomObj.word;
+  let shuffled = wordToShuffle
+    .split("")
+    .sort(function () {
+      return 0.5 - Math.random();
+    })
+    .join("");
+
+  wordToGuess.innerHTML = shuffled;
   hintToWord.innerHTML = randomObj.hint;
 };
 
@@ -120,3 +127,18 @@ function timeLeft() {
     clearInterval(time);
   }
 }
+
+const playerInput = document.querySelector(".enter-word");
+const infoInput = document.querySelector(".info");
+const checkBtn = document.querySelector(".check-btn");
+
+function checkTheWord() {
+  let userValue = playerInput.value.toLowerCase();
+  if (userValue === "") {
+    infoInput.innerHTML = "You have to write something";
+  } else if (userValue === wordToGuess.innerHTML) {
+    infoInput.innerHTML = "You won!";
+  }
+}
+
+checkBtn.addEventListener("click", checkTheWord);

@@ -15,7 +15,7 @@ html {
   height: 50vh;
   padding: 6rem;
   margin: 3rem;
-  gap: 1.2rem;
+  gap: 1rem;
   border-radius: 10px;
   background-color: white;
   display: flex;
@@ -37,6 +37,7 @@ h2 {
 }
 
 .word {
+  text-transform: uppercase;
   letter-spacing: 1.5rem;
 }
 
