@@ -93,12 +93,20 @@ let words = [
   },
 ];
 
+const playerInput = document.querySelector(".enter-word");
+const infoInput = document.querySelector(".info");
+const checkBtn = document.querySelector(".check-btn");
 const wordToGuess = document.querySelector(".word");
 const hintToWord = document.querySelector(".hint-text");
+const timeAmount = document.querySelector(".time-amount");
+
+let seconds = 60;
+let time = setInterval(timeLeft, 100);
+
+let randomObj = words[Math.floor(Math.random() * words.length)];
+let wordToShuffle = randomObj.word;
 
 const initGame = () => {
-  let randomObj = words[Math.floor(Math.random() * words.length)];
-  let wordToShuffle = randomObj.word;
   let shuffled = wordToShuffle
     .split("")
     .sort(function () {
@@ -112,12 +120,6 @@ const initGame = () => {
 
 initGame();
 
-const timeAmount = document.querySelector(".time-amount");
-
-let seconds = 60;
-
-let time = setInterval(timeLeft, 100);
-
 function timeLeft() {
   timeAmount.innerHTML = seconds + " seconds";
   seconds--;
@@ -128,15 +130,11 @@ function timeLeft() {
   }
 }
 
-const playerInput = document.querySelector(".enter-word");
-const infoInput = document.querySelector(".info");
-const checkBtn = document.querySelector(".check-btn");
-
 function checkTheWord() {
   let userValue = playerInput.value.toLowerCase();
   if (userValue === "") {
     infoInput.innerHTML = "You have to write something";
-  } else if (userValue === wordToGuess.innerHTML) {
+  } else if (userValue === wordToShuffle) {
     infoInput.innerHTML = "You won!";
   }
 }
