@@ -96,12 +96,13 @@ let words = [
 const playerInput = document.querySelector(".enter-word");
 const infoInput = document.querySelector(".info");
 const checkBtn = document.querySelector(".check-btn");
+const newBtn = document.querySelector(".new-word");
 const wordToGuess = document.querySelector(".word");
 const hintToWord = document.querySelector(".hint-text");
 const timeAmount = document.querySelector(".time-amount");
 
 let seconds = 60;
-let time = setInterval(timeLeft, 100);
+let time = setInterval(timeLeft, 1000);
 
 let randomObj = words[Math.floor(Math.random() * words.length)];
 let wordToShuffle = randomObj.word;
@@ -136,7 +137,24 @@ function checkTheWord() {
     infoInput.innerHTML = "You have to write something";
   } else if (userValue === wordToShuffle) {
     infoInput.innerHTML = "You won!";
+  } else {
+    infoInput.innerHTML = "Try again";
   }
 }
 
+function newWord() {
+  seconds = 60;
+  let randomObj = words[Math.floor(Math.random() * words.length)];
+  let wordToShuffle = randomObj.word;
+  let shuffled = wordToShuffle
+    .split("")
+    .sort(function () {
+      return 0.5 - Math.random();
+    })
+    .join("");
+  wordToGuess.innerHTML = shuffled;
+  hintToWord.innerHTML = randomObj.hint;
+}
+
 checkBtn.addEventListener("click", checkTheWord);
+newBtn.addEventListener("click", newWord);

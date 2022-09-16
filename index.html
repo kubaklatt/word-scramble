@@ -8,9 +8,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/7f03104bfb.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./dist/css/style.min.css" />
   </head>
   <body>
@@ -18,15 +22,19 @@
       <div class="main-content">
         <h1>GUESS THE WORD!</h1>
         <h2>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia hic
-          fugit, accusantium laboriosam harum placeat, porro fugiat ex
-          perferendis recusandae vitae consectetur fuga. Ex, veniam quam omnis
-          distinctio ipsam magni!
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem error
+          quasi voluptatibus animi iste blanditiis. Minus repellendus dolorem
+          esse sit ipsum reprehenderit? Fugit laudantium autem quaerat nulla
+          natus impedit sed illo sapiente. Minima distinctio laboriosam
+          explicabo, fugiat pariatur obcaecati molestiae!
         </h2>
-        <div class="guess-word"><p class="word">JDHFYTHG</p></div>
-        <p class="hint">
-          Hint: <span class="hint-text">Lorem ipsum dolor sit amet.</span>
-        </p>
+        <h3>Select a level and start a game!</h3>
+        <div class="levels">
+          <button class="level easy">Easy</button>
+          <button class="level hard">Hard</button>
+        </div>
+        <div class="guess-word"><p class="word"></p></div>
+        <p class="hint">Hint: <span class="hint-text"></span></p>
         <p class="timer">Time left: <span class="time-amount">60 </span></p>
         <input
           type="text"
@@ -36,7 +44,6 @@
         />
         <div class="info"></div>
         <div class="buttons">
-          <button class="new-word">New Word</button>
           <button class="check-btn">Check Word</button>
         </div>
       </div>

@@ -7,17 +7,15 @@
 }
 
 html {
-  font-family: "Roboto", sans-serif;
+  font-family: "Nunito", sans-serif;
   background-color: #cce6ff;
 }
 
 .main-content {
-  height: 50vh;
-  padding: 6rem;
-  margin: 3rem;
-  gap: 1rem;
+  height: 100vh;
+  padding: 2rem;
+  gap: 2rem;
   border-radius: 10px;
-  background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,8 +23,9 @@ html {
 }
 
 h1 {
-  font-weight: 400;
-  font-size: 2rem;
+  color: #0059b3;
+  font-weight: 700;
+  font-size: 1.5rem;
   letter-spacing: 3px;
 }
 
@@ -34,35 +33,28 @@ h2 {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
+  text-align: center;
 }
 
-.word {
-  text-transform: uppercase;
-  letter-spacing: 1.5rem;
-}
-
-.new-word {
+.level {
   cursor: pointer;
-  outline: 0;
+  background-color: #0059b3;
   color: #fff;
-  background-color: #737373;
-  border-color: #737373;
-  display: inline-block;
   font-weight: 400;
   line-height: 1.5;
   text-align: center;
-  border: 1px solid transparent;
-  padding: 6px 12px;
-  font-size: 16px;
+  border: 3px solid #001a33;
   border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  padding: 6px 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 1rem;
 }
 
-.new-word:hover {
-  color: #fff;
-  background-color: #4d4d4d;
-  border-color: #4d4d4d;
+.word {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5rem;
 }
 
 .check-btn {
