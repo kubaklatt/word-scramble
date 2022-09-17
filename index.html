@@ -12,7 +12,7 @@
       rel="stylesheet"
     />
     <script
-      src="https://kit.fontawesome.com/7f03104bfb.js"
+      src="https://kit.fontawesome.com/bc062969b2.js"
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./dist/css/style.min.css" />
@@ -22,24 +22,51 @@
       <div class="main-content">
         <h1>GUESS THE WORD!</h1>
         <h2>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem error
-          quasi voluptatibus animi iste blanditiis. Minus repellendus dolorem
-          esse sit ipsum reprehenderit? Fugit laudantium autem quaerat nulla
-          natus impedit sed illo sapiente. Minima distinctio laboriosam
-          explicabo, fugiat pariatur obcaecati molestiae!
+          In this game you have to show your knowledge and cleverness to
+          unscramble a word from the scattered letters! Choose the difficulty
+          level, easy - if you don't want to be chased by running out of time,
+          or hard - if you feel confident and want to do it on time!
         </h2>
         <h3>Select a level and start a game!</h3>
         <div class="levels">
           <button class="level easy">Easy</button>
           <button class="level hard">Hard</button>
         </div>
+        <div class="stats">
+          <div class="timer">
+            <img
+              class="time-img"
+              src="./dist/img/time-svgrepo-com.svg"
+              alt=""
+            />
+            <p class="stat">Time:</p>
+            <span class="time-amount"></span>
+          </div>
+          <div class="score">
+            <img
+              class="score-img"
+              src="./dist/img/score-svgrepo-com.svg"
+              alt=""
+            />
+            <p class="stat">Score:</p>
+            <span class="score-amount">5</span>
+          </div>
+          <div class="blunders">
+            <img
+              class="error-img"
+              src="./dist/img/error-svgrepo-com.svg"
+              alt=""
+            />
+            <p class="stat">Blunders:</p>
+            <span class="blunders-amount">2</span>
+          </div>
+        </div>
         <div class="guess-word"><p class="word"></p></div>
         <p class="hint">Hint: <span class="hint-text"></span></p>
-        <p class="timer">Time left: <span class="time-amount">60 </span></p>
         <input
           type="text"
           class="enter-word"
-          placeholder="Enter the word"
+          placeholder="Enter the word..."
           required
         />
         <div class="info"></div>

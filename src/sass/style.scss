@@ -14,18 +14,21 @@ html {
 .main-content {
   height: 100vh;
   padding: 2rem;
-  gap: 2rem;
-  border-radius: 10px;
+  gap: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
+img {
+  width: 1.5rem;
+}
+
 h1 {
   color: #0059b3;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   letter-spacing: 3px;
 }
 
@@ -34,6 +37,10 @@ h2 {
   font-size: 1rem;
   line-height: 1.5rem;
   text-align: center;
+}
+
+h3 {
+  font-size: 1.2rem;
 }
 
 .level {
@@ -51,32 +58,68 @@ h2 {
   margin: 1rem;
 }
 
+.level:hover {
+  background-color: #004891;
+}
+
+.enter-word {
+  padding: 5px;
+  font-size: 1rem;
+  border-width: 1px;
+  border-color: #cccccc;
+  background-color: #ffffff;
+  color: #000000;
+  border-style: solid;
+  border-radius: 0px;
+  box-shadow: 0px 0px 5px rgba(66, 66, 66, 0.5);
+  text-shadow: -50px 0px 0px rgba(66, 66, 66, 0);
+}
+
+.enter-word:focus {
+  outline: none;
+}
 .word {
-  font-size: 1.4rem;
+  color: #00334d;
+  font-size: 1.6rem;
   text-transform: uppercase;
   letter-spacing: 1.5rem;
 }
 
+.info {
+  font-weight: 700;
+}
+
+.hint {
+  color: #248f24;
+  font-weight: 700;
+}
+
+.stats {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  text-align: center;
+}
+
+.stat {
+  font-weight: 700;
+}
+
 .check-btn {
   cursor: pointer;
-  outline: 0;
-  color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
-  display: inline-block;
+  background-color: #ffd700;
+  color: black;
   font-weight: 400;
   line-height: 1.5;
   text-align: center;
-  border: 1px solid transparent;
-  padding: 6px 12px;
-  font-size: 16px;
+  border: 3px solid #001a33;
   border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  padding: 6px 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 1rem;
 }
 
 .check-btn:hover {
-  color: #fff;
-  background-color: #0b5ed7;
-  border-color: #0a58ca;
+  background-color: #e8c500;
 }

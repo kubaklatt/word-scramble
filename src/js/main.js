@@ -122,7 +122,7 @@ const initGame = () => {
 initGame();
 
 function timeLeft() {
-  timeAmount.innerHTML = seconds + " seconds";
+  timeAmount.innerHTML = seconds;
   seconds--;
   if (seconds === 0) {
     seconds = 0;
