@@ -14,54 +14,53 @@ html {
 .main-content {
   height: 100vh;
   padding: 2rem;
-  gap: 0.5rem;
+  gap: 0.4rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-}
 
-img {
-  width: 1.5rem;
-}
+  h1 {
+    color: #0059b3;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+  }
 
-h1 {
-  color: #0059b3;
-  font-weight: 700;
-  font-size: 1.3rem;
-  letter-spacing: 3px;
-}
+  h2 {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-align: center;
+  }
 
-h2 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  text-align: center;
-}
+  h3 {
+    font-size: 1.2rem;
+  }
 
-h3 {
-  font-size: 1.2rem;
-}
+  .level {
+    cursor: pointer;
+    background-color: #0059b3;
+    color: #fff;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    border: 3px solid #001a33;
+    border-radius: 0.25rem;
+    padding: 6px 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 1rem;
+  }
 
-.level {
-  cursor: pointer;
-  background-color: #0059b3;
-  color: #fff;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: center;
-  border: 3px solid #001a33;
-  border-radius: 0.25rem;
-  padding: 6px 12px;
-  font-weight: 700;
-  font-size: 1rem;
-  margin: 1rem;
-}
+  .level:hover {
+    background-color: #004891;
+  }
 
-.level:hover {
-  background-color: #004891;
+  img {
+    width: 1.5rem;
+  }
 }
-
 .enter-word {
   padding: 5px;
   font-size: 1rem;
