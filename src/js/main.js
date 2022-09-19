@@ -1,146 +1,134 @@
 let words = [
   {
     word: "addition",
-    hint: "The process of adding numbers",
+    hint: "Hint: The process of adding numbers",
   },
   {
     word: "meeting",
-    hint: "Event in which people come together",
+    hint: "Hint: Event in which people come together",
   },
   {
     word: "number",
-    hint: "Math symbol used for counting",
+    hint: "Hint: Math symbol used for counting",
   },
   {
     word: "exchange",
-    hint: "The act of trading",
+    hint: "Hint: The act of trading",
   },
   {
     word: "canvas",
-    hint: "Piece of fabric for oil painting",
+    hint: "Hint: Piece of fabric for oil painting",
   },
   {
     word: "garden",
-    hint: "Space for planting flower and plant",
+    hint: "Hint: Space for planting flower and plant",
   },
   {
     word: "position",
-    hint: "Location of someone or something",
+    hint: "Hint: Location of someone or something",
   },
   {
     word: "feather",
-    hint: "Hair like outer covering of bird",
+    hint: "Hint: Hair like outer covering of bird",
   },
   {
     word: "comfort",
-    hint: "A pleasant feeling of relaxation",
+    hint: "Hint: A pleasant feeling of relaxation",
   },
   {
     word: "tongue",
-    hint: "The muscular organ of mouth",
+    hint: "Hint: The muscular organ of mouth",
   },
   {
     word: "expansion",
-    hint: "The process of increase or grow",
+    hint: "Hint: The process of increase or grow",
   },
   {
     word: "country",
-    hint: "A politically identified region",
+    hint: "Hint: A politically identified region",
   },
   {
     word: "group",
-    hint: "A number of objects or persons",
+    hint: "Hint: A number of objects or persons",
   },
   {
     word: "taste",
-    hint: "Ability of tongue to detect flavour",
+    hint: "Hint: Ability of tongue to detect flavour",
   },
   {
     word: "store",
-    hint: "Large shop where goods are traded",
+    hint: "Hint: Large shop where goods are traded",
   },
   {
     word: "field",
-    hint: "Area of land for farming activities",
+    hint: "Hint: Area of land for farming activities",
   },
   {
     word: "friend",
-    hint: "Person other than a family member",
+    hint: "Hint: Person other than a family member",
   },
   {
     word: "pocket",
-    hint: "A bag for carrying small items",
+    hint: "Hint: A bag for carrying small items",
   },
   {
     word: "needle",
-    hint: "A thin and sharp metal pin",
+    hint: "Hint: A thin and sharp metal pin",
   },
   {
     word: "expert",
-    hint: "Person with extensive knowledge",
+    hint: "Hint: Person with extensive knowledge",
   },
   {
     word: "statement",
-    hint: "A declaration of something",
+    hint: "Hint: A declaration of something",
   },
   {
     word: "second",
-    hint: "One-sixtieth of a minute",
+    hint: "Hint: One-sixtieth of a minute",
   },
   {
     word: "library",
-    hint: "Place containing collection of books",
+    hint: "Hint: Place containing collection of books",
   },
 ];
 
 const playerInput = document.querySelector(".enter-word");
 const infoInput = document.querySelector(".info");
-const checkBtn = document.querySelector(".check-btn");
-const newBtn = document.querySelector(".new-word");
 const wordToGuess = document.querySelector(".word");
 const hintToWord = document.querySelector(".hint-text");
+const blundersAmount = document.querySelector(".blunders-amount");
+const scoreAmount = document.querySelector(".score-amount");
+const easyBtn = document.querySelector(".easy");
+const hardBtn = document.querySelector(".hard");
+const checkBtn = document.querySelector(".check-btn");
 const timeAmount = document.querySelector(".time-amount");
+const loseModal = document.querySelector(".lose-modal");
+const winModal = document.querySelector(".win-modal");
+const loseModalClose = document.querySelector(".lose-modal-close");
+const loseModalCloseBtn = document.querySelector(".lose-modal-btn");
+const winModalClose = document.querySelector(".win-modal-close");
+const winModalCloseBtn = document.querySelector(".win-modal-btn");
 
-let seconds = 60;
-let time = setInterval(timeLeft, 1000);
+let seconds = 100;
+let blunders;
+let score = 0;
+
+// function timeLeft() {
+//   timeAmount.innerHTML = seconds;
+//   seconds--;
+//   if (seconds === 0) {
+//     seconds = 0;
+//     loseModal.style.display = "flex";
+//   }
+// }
+
+// GET A RANDOM WORD
 
 let randomObj = words[Math.floor(Math.random() * words.length)];
 let wordToShuffle = randomObj.word;
 
-const initGame = () => {
-  let shuffled = wordToShuffle
-    .split("")
-    .sort(function () {
-      return 0.5 - Math.random();
-    })
-    .join("");
-
-  wordToGuess.innerHTML = shuffled;
-  hintToWord.innerHTML = randomObj.hint;
-};
-
-initGame();
-
-function timeLeft() {
-  timeAmount.innerHTML = seconds;
-  seconds--;
-  if (seconds === 0) {
-    seconds = 0;
-    timeAmount.innerHTML = "You lost, time gone!";
-    clearInterval(time);
-  }
-}
-
-function checkTheWord() {
-  let userValue = playerInput.value.toLowerCase();
-  if (userValue === "") {
-    infoInput.innerHTML = "You have to write something";
-  } else if (userValue === wordToShuffle) {
-    infoInput.innerHTML = "You won!";
-  } else {
-    infoInput.innerHTML = "Try again";
-  }
-}
+// FUNCTION TO GENERATE A RANDOM WORD WITH HINT
 
 function newWord() {
   seconds = 60;
@@ -156,5 +144,68 @@ function newWord() {
   hintToWord.innerHTML = randomObj.hint;
 }
 
+// FUNCTION TO CHECK A PLAYER INPUT
+
+function checkTheWord() {
+  let userValue = playerInput.value.toLowerCase();
+  if (userValue === wordToShuffle) {
+    infoInput.innerHTML = "Nice!";
+    score++;
+    console.log(score);
+  } else if (userValue === "") {
+    infoInput.innerHTML = "You have to write something";
+  } else {
+    infoInput.innerHTML = "Try again";
+  }
+}
+
+// EASY MODE
+
+function playEasy() {
+  newWord();
+}
+
+// CLOSE LOSE MODAL ON CLICK OUTSIDE
+
+window.addEventListener("click", function (e) {
+  if (e.target == loseModal) {
+    loseModal.style.display = "none";
+  }
+});
+
+// CLOSE WIN MODAL ON CLICK OUTSIDE
+
+window.addEventListener("click", function (e) {
+  if (e.target == winModal) {
+    winModal.style.display = "none";
+  }
+});
+
+// CLOSE LOSE MODAL ON X
+
+loseModalClose.addEventListener("click", function () {
+  loseModal.style.display = "none";
+});
+
+// CLOSE WIN MODAL ON X
+
+winModalClose.addEventListener("click", function () {
+  winModal.style.display = "none";
+});
+
+// CLOSE LOSE MODAL ON BUTTON
+
+loseModalCloseBtn.addEventListener("click", function () {
+  loseModal.style.display = "none";
+});
+
+// CLOSE WIN MODAL ON BUTTON
+
+winModalCloseBtn.addEventListener("click", function () {
+  winModal.style.display = "none";
+});
+
+// EVENT LISTENERS
+
+easyBtn.addEventListener("click", playEasy);
 checkBtn.addEventListener("click", checkTheWord);
-newBtn.addEventListener("click", newWord);

@@ -65,7 +65,7 @@
           </div>
         </div>
         <div class="guess-word"><p class="word"></p></div>
-        <p class="hint">Hint: <span class="hint-text"></span></p>
+        <p class="hint"><span class="hint-text"></span></p>
         <input
           type="text"
           class="enter-word"
@@ -80,16 +80,34 @@
     </main>
 
     <!-- MODAL FOR LOSE -->
-    <div class="modal">
-      <div class="modal__content">
-        <div class="modal__close">+</div>
+    <div class="lose-modal">
+      <div class="lose-modal-content">
+        <div class="lose-modal-close">+</div>
         <img class="lose-img" src="./dist/img/sad-svgrepo-com.svg" alt="" />
-        <h2 class="modal__title">Unfortunately, you lost :(</h2>
-        <p class="modal__text">
+        <h2 class="lose-modal-title">Unfortunately, you lost :(</h2>
+        <p class="lose-modal-text">
           Don't give up, click anywhere to get back to the game and try to start
           again!
         </p>
-        <button type="button" class="modal__btn">Go back</button>
+        <button type="button" class="lose-modal-btn">Go back</button>
+      </div>
+    </div>
+
+    <!-- MODAL FOR WIN -->
+    <div class="win-modal">
+      <div class="win-modal-content">
+        <div class="win-modal-close">+</div>
+        <img
+          class="win-img"
+          src="./dist/img/award-reward-svgrepo-com.svg"
+          alt=""
+        />
+        <h2 class="win-modal-title">You won!</h2>
+        <p class="win-modal-text">
+          You're crushing it! If you want to go back to the game and try again
+          click anywhere!
+        </p>
+        <button type="button" class="win-modal-btn">Go back</button>
       </div>
     </div>
 
