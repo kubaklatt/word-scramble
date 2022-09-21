@@ -155,7 +155,9 @@ function newWord() {
 // EASY MODE
 
 function playEasy() {
+	resetScoreBlunders()
 	newWord()
+	infoInput.innerHTML = ''
 }
 
 // FUNCTION TO CHECK A PLAYER INPUT
@@ -167,16 +169,35 @@ function checkTheWord() {
 		scoreAmount.innerHTML = score
 		// infoInput.innerHTML = 'Nice!'
 		newWord()
+		checkWinLose()
 	} else if (userValue === '') {
 		infoInput.innerHTML = 'You have to write something'
 	} else {
 		blunders++
 		blundersAmount.innerHTML = blunders
+		checkWinLose()
 		// infoInput.innerHTML = 'Try again'
 	}
 }
 
+// FUNCTION TO RESET SCORE AND BLUNDERS
 
+function resetScoreBlunders() {
+	score = 0
+	blunders = 0
+	scoreAmount.innerHTML = score
+	blundersAmount.innerHTML = blunders
+}
+
+// FUNCTION TO CHECK IF PLAYER WON OR LOST
+
+function checkWinLose() {
+	if (score === 5) {
+		console.log('jest 5 score')
+		winModal.style.display = 'flex'
+		resetScoreBlunders()
+	}
+}
 
 // CLOSE LOSE MODAL ON CLICK OUTSIDE
 
