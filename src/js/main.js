@@ -150,6 +150,7 @@ function playEasy() {
 	resetAll()
 	newWord()
 	clearInterval(timeCounter)
+	showInputBtn()
 }
 
 // HARD MODE
@@ -159,6 +160,14 @@ function playHard() {
 	newWord()
 	clearInterval(timeCounter)
 	timeCounter = setInterval(timeLeft, 100)
+	showInputBtn()
+}
+
+// SHOW INPUT AND CHECKBTN
+
+function showInputBtn() {
+	playerInput.type = 'text'
+	checkBtn.hidden = ''
 }
 
 // FUNCTION TO CHECK A PLAYER INPUT
@@ -168,17 +177,16 @@ function checkTheWord() {
 	if (userValue === correctWord) {
 		score++
 		scoreAmount.innerHTML = score
-		infoInput.innerHTML = ''
 		playerInput.value = ''
 		newWord()
 		checkWinLose()
 	} else if (userValue === '') {
 		infoInput.innerHTML = 'You have to write something'
+		playerInput.value = ''
 	} else {
 		blunders++
 		blundersAmount.innerHTML = blunders
 		checkWinLose()
-		infoInput.innerHTML = ''
 	}
 }
 
