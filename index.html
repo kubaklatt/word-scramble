@@ -1,116 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Word Scramble</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/bc062969b2.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="./dist/css/style.min.css" />
-  </head>
-  <body>
-    <main>
-      <div class="main-content">
-        <h1>GUESS THE WORD!</h1>
-        <h2>
-          In this game you have to show your knowledge and cleverness to
-          unscramble a word from the scattered letters! Choose the difficulty
-          level, easy - if you don't want to be chased by running out of time,
-          or hard - if you feel confident and want to do it on time! Get five
-          points to win, but if you make five mistakes you lose!
-        </h2>
-        <h3>Select a level and start a game!</h3>
-        <div class="levels">
-          <button class="level easy">Easy</button>
-          <button class="level hard">Hard</button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Word Scramble</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/bc062969b2.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./dist/css/style.min.css" />
+</head>
+
+<body>
+  <main>
+    <div class="main-content">
+      <h1>GUESS THE WORD!</h1>
+      <h2>
+        In this game you have to show your knowledge and cleverness to
+        unscramble a word from the scattered letters! Choose the difficulty
+        level, easy - if you don't want to be chased by running out of time,
+        or hard - if you feel confident and want to do it on time! Get five
+        points to win, but if you make five mistakes you lose!
+      </h2>
+      <h3>Select a level and start a game!</h3>
+      <div class="levels">
+        <button class="level easy">Easy</button>
+        <button class="level hard">Hard</button>
+      </div>
+      <div class="stats">
+        <div class="timer">
+          <img class="stat-icon time" src="./dist/img/time-svgrepo-com.svg" alt="" />
+          <p class="stat">Time:</p>
+          <span class="time-amount"></span>
         </div>
-        <div class="stats">
-          <div class="timer">
-            <img
-              class="stat-icon time"
-              src="./dist/img/time-svgrepo-com.svg"
-              alt=""
-            />
-            <p class="stat">Time:</p>
-            <span class="time-amount"></span>
-          </div>
-          <div class="score">
-            <img
-              class="score-img"
-              src="./dist/img/score-svgrepo-com.svg"
-              alt=""
-            />
-            <p class="stat">Score:</p>
-            <span class="score-amount">0</span>
-            <span class="slash">/ 5</span>
-          </div>
-          <div class="blunders">
-            <img
-              class="error-img"
-              src="./dist/img/error-svgrepo-com.svg"
-              alt=""
-            />
-            <p class="stat">Blunders:</p>
-            <span class="blunders-amount">0</span>
-            <span class="slash">/ 5</span>
-          </div>
+        <div class="score">
+          <img class="score-img" src="./dist/img/score-svgrepo-com.svg" alt="" />
+          <p class="stat">Score:</p>
+          <span class="score-amount">0</span>
+          <span class="slash">/ 5</span>
         </div>
-        <div class="guess-word"><p class="word"></p></div>
-        <p class="hint"><span class="hint-text"></span></p>
-        <input
-          type="text"
-          class="enter-word"
-          placeholder="Enter the word..."
-          required
-        />
-        <div class="info"></div>
-        <div class="buttons">
-          <button class="check-btn">Check Word</button>
+        <div class="blunders">
+          <img class="error-img" src="./dist/img/error-svgrepo-com.svg" alt="" />
+          <p class="stat">Blunders:</p>
+          <span class="blunders-amount">0</span>
+          <span class="slash">/ 5</span>
         </div>
       </div>
-    </main>
-
-    <!-- MODAL FOR LOSE -->
-    <div class="lose-modal">
-      <div class="lose-modal-content">
-        <div class="lose-modal-close">+</div>
-        <img class="lose-img" src="./dist/img/sad-svgrepo-com.svg" alt="" />
-        <h2 class="lose-modal-title">Unfortunately, you lost :(</h2>
-        <p class="lose-modal-text">
-          Don't give up, click anywhere to get back to the game and try to start
-          again!
-        </p>
-        <button type="button" class="lose-modal-btn">Go back</button>
+      <div class="guess-word">
+        <p class="word"></p>
+      </div>
+      <p class="hint"><span class="hint-text"></span></p>
+      <input type="text" class="enter-word" placeholder="Enter the word..." required />
+      <div class="info"></div>
+      <div class="buttons">
+        <button class="check-btn">Check Word</button>
       </div>
     </div>
+  </main>
 
-    <!-- MODAL FOR WIN -->
-    <div class="win-modal">
-      <div class="win-modal-content">
-        <div class="win-modal-close">+</div>
-        <img
-          class="win-img"
-          src="./dist/img/award-reward-svgrepo-com.svg"
-          alt=""
-        />
-        <h2 class="win-modal-title">You won!</h2>
-        <p class="win-modal-text">
-          You're crushing it! If you want to go back to the game and try again
-          click anywhere!
-        </p>
-        <button type="button" class="win-modal-btn">Go back</button>
-      </div>
+  <!-- MODAL FOR LOSE -->
+  <div class="lose-modal">
+    <div class="lose-modal-content">
+      <div class="lose-modal-close">+</div>
+      <img class="lose-img" src="./dist/img/sad-svgrepo-com.svg" alt="" />
+      <h2 class="lose-modal-title">Unfortunately, you lost :(</h2>
+      <p class="lose-modal-text">
+        Don't give up, click anywhere to get back to the game and try to start
+        again!
+      </p>
+      <button type="button" class="lose-modal-btn">Go back</button>
     </div>
+  </div>
 
-    <script src="./dist/js/main.min.js"></script>
-  </body>
+  <!-- MODAL FOR WIN -->
+  <div class="win-modal">
+    <div class="win-modal-content">
+      <div class="win-modal-close">+</div>
+      <img class="win-img" src="./dist/img/award-reward-svgrepo-com.svg" alt="" />
+      <h2 class="win-modal-title">You won!</h2>
+      <p class="win-modal-text">
+        You're crushing it! If you want to go back to the game and try again
+        click anywhere!
+      </p>
+      <button type="button" class="win-modal-btn">Go back</button>
+    </div>
+  </div>
+
+  <script src="./dist/js/main.min.js"></script>
+</body>
+
 </html>
