@@ -115,14 +115,14 @@ let blunders = 0
 let score = 0
 let correctWord
 
-// function timeLeft() {
-//   timeAmount.innerHTML = seconds;
-//   seconds--;
-//   if (seconds === 0) {
-//     seconds = 0;
-//     loseModal.style.display = "flex";
-//   }
-// }
+function timeLeft() {
+	timeAmount.innerHTML = seconds
+	seconds--
+	if (seconds === 0) {
+		seconds = 0
+		loseModal.style.display = 'flex'
+	}
+}
 
 // GET A RANDOM WORD
 
@@ -155,9 +155,15 @@ function newWord() {
 // EASY MODE
 
 function playEasy() {
-	resetScoreBlunders()
+	resetAll()
 	newWord()
-	infoInput.innerHTML = ''
+}
+
+// HARD MODE
+
+function playHard() {
+	resetAll()
+	newWord()
 }
 
 // FUNCTION TO CHECK A PLAYER INPUT
@@ -167,7 +173,8 @@ function checkTheWord() {
 	if (userValue === correctWord) {
 		score++
 		scoreAmount.innerHTML = score
-		// infoInput.innerHTML = 'Nice!'
+		infoInput.innerHTML = ''
+		playerInput.value = ''
 		newWord()
 		checkWinLose()
 	} else if (userValue === '') {
@@ -176,26 +183,32 @@ function checkTheWord() {
 		blunders++
 		blundersAmount.innerHTML = blunders
 		checkWinLose()
-		// infoInput.innerHTML = 'Try again'
+		infoInput.innerHTML = ''
 	}
 }
 
 // FUNCTION TO RESET SCORE AND BLUNDERS
 
-function resetScoreBlunders() {
+function resetAll() {
 	score = 0
 	blunders = 0
 	scoreAmount.innerHTML = score
 	blundersAmount.innerHTML = blunders
+	infoInput.innerHTML = ''
+	wordToGuess.innerHTML = ''
+	hintToWord.innerHTML = ''
+	playerInput.value = ''
 }
 
 // FUNCTION TO CHECK IF PLAYER WON OR LOST
 
 function checkWinLose() {
 	if (score === 5) {
-		console.log('jest 5 score')
 		winModal.style.display = 'flex'
-		resetScoreBlunders()
+		resetAll()
+	} else if (blunders === 5) {
+		loseModal.style.display = 'flex'
+		resetAll()
 	}
 }
 
@@ -242,4 +255,5 @@ winModalCloseBtn.addEventListener('click', function () {
 // EVENT LISTENERS
 
 easyBtn.addEventListener('click', playEasy)
+hardBtn.addEventListener('click', playHard)
 checkBtn.addEventListener('click', checkTheWord)
