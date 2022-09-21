@@ -114,20 +114,19 @@ let seconds = 100
 let blunders = 0
 let score = 0
 let correctWord
+let timeCounter
+
+// FUNCTION TO COUNT TIME
 
 function timeLeft() {
 	timeAmount.innerHTML = seconds
 	seconds--
 	if (seconds === 0) {
-		seconds = 0
+		clearInterval(timeCounter)
 		loseModal.style.display = 'flex'
+		resetAll()
 	}
 }
-
-// GET A RANDOM WORD
-
-let randomObj = words[Math.floor(Math.random() * words.length)]
-let wordToShuffle = randomObj.word
 
 // FUNCTION TO GENERATE A RANDOM WORD WITH HINT
 
@@ -145,18 +144,12 @@ function newWord() {
 	hintToWord.innerHTML = randomObj.hint
 }
 
-// function scoreAndBlunders() {
-// 	if (infoInput.innerHTML === 'Nice!') {
-// 		score++
-// 		scoreAmount.innerHTML = score
-// 	}
-// }
-
 // EASY MODE
 
 function playEasy() {
 	resetAll()
 	newWord()
+	clearInterval(timeCounter)
 }
 
 // HARD MODE
@@ -164,6 +157,8 @@ function playEasy() {
 function playHard() {
 	resetAll()
 	newWord()
+	clearInterval(timeCounter)
+	timeCounter = setInterval(timeLeft, 100)
 }
 
 // FUNCTION TO CHECK A PLAYER INPUT
@@ -192,8 +187,10 @@ function checkTheWord() {
 function resetAll() {
 	score = 0
 	blunders = 0
+	seconds = 100
 	scoreAmount.innerHTML = score
 	blundersAmount.innerHTML = blunders
+	timeAmount.innerHTML = ''
 	infoInput.innerHTML = ''
 	wordToGuess.innerHTML = ''
 	hintToWord.innerHTML = ''
@@ -254,6 +251,14 @@ winModalCloseBtn.addEventListener('click', function () {
 
 // EVENT LISTENERS
 
+let elem
+
 easyBtn.addEventListener('click', playEasy)
 hardBtn.addEventListener('click', playHard)
 checkBtn.addEventListener('click', checkTheWord)
+playerInput.addEventListener('keyup', function (e) {
+	if (e.code === 'Enter') {
+		e.preventDefault()
+		checkTheWord()
+	}
+})
