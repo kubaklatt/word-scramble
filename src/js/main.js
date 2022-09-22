@@ -159,7 +159,7 @@ function playHard() {
 	resetAll()
 	newWord()
 	clearInterval(timeCounter)
-	timeCounter = setInterval(timeLeft, 100)
+	timeCounter = setInterval(timeLeft, 500)
 	showInputBtn()
 }
 
@@ -210,9 +210,13 @@ function resetAll() {
 function checkWinLose() {
 	if (score === 5) {
 		winModal.style.display = 'flex'
+		playerInput.type = 'hide'
+		checkBtn.hidden = 'hidden'
 		resetAll()
 	} else if (blunders === 5) {
 		loseModal.style.display = 'flex'
+		playerInput.type = 'hidden'
+		checkBtn.hidden = 'hidden'
 		resetAll()
 	}
 }
@@ -259,7 +263,7 @@ winModalCloseBtn.addEventListener('click', function () {
 
 // EVENT LISTENERS
 
-let elem
+// let elem
 
 easyBtn.addEventListener('click', playEasy)
 hardBtn.addEventListener('click', playHard)
