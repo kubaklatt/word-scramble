@@ -210,7 +210,7 @@ function resetAll() {
 function checkWinLose() {
 	if (score === 5) {
 		winModal.style.display = 'flex'
-		playerInput.type = 'hide'
+		playerInput.type = 'hidden'
 		checkBtn.hidden = 'hidden'
 		resetAll()
 	} else if (blunders === 5) {
